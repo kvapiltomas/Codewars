@@ -1,0 +1,8 @@
+def friend(x):
+    my_friend = []
+    for friend in x:
+        if len(friend) == 4:
+          my_friend.append(friend)
+        else:
+          pass
+    return(my_friend)
