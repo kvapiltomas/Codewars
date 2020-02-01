@@ -1,0 +1,19 @@
+def tribonacci(signature, n):
+  steps = 0
+  range = n - 3
+  new = 0
+  
+  if n == 1:
+      return signature[0:n]
+  elif n == 0:
+      signature = []
+      return signature
+  else:
+      while steps < range:
+          for n in signature[-3:]:
+              new += n
+          steps += 1
+          signature.append(new)
+          new = 0
+      return signature
+      
