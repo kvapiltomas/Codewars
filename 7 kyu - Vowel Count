@@ -1,0 +1,4 @@
+def getCount(inputStr):
+    vowels = ['a','e','i','o','u']
+    
+    return sum(1 for l in inputStr if l in vowels)
