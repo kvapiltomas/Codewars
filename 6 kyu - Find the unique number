@@ -1,0 +1,13 @@
+def find_uniq(arr):
+    import numpy as np
+    
+    for n in np.unique(arr):
+      if arr.count(n) == 1:
+        return n
+      else:
+        pass
+
+#better solution with set() method
+def find_uniq(arr):
+    x, y = set(arr)
+    return x if arr.count(x) == 1 else y
