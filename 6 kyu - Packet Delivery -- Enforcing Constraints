@@ -1,0 +1,15 @@
+#Under development
+
+class Package(object):
+
+    def __init__(self,length,width,height,weight):
+        self.length = length
+        self.width = width
+        self.height = height
+        self.weight = weight
+    
+    
+    def volume(self):
+        volume = self.length*self.width*self.height
+        return volume
+        
