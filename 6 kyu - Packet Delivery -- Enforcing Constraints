@@ -1,15 +1,25 @@
-#Under development
-
+class DimensionsOutOfBoundError(Exception): 
+    pass
+    
+    
 class Package(object):
 
+    
+    limits = {'length': (0, 350), 'width':(0, 300), 'height': (0, 150), 'weight': (0, 40)}
+    
     def __init__(self,length,width,height,weight):
         self.length = length
         self.width = width
         self.height = height
         self.weight = weight
     
-    
+    @property
     def volume(self):
         volume = self.length*self.width*self.height
         return volume
-        
+    
+    def __setattr__(self, param, value):
+        min, max = self.limits[param]
+        if not (min < value <= max):
+           raise DimensionsOutOfBoundError("Package {0}=={1} out of bounds, should be: {2} < {0} <= {3}".format(param, value, min, max))
+        self.__dict__[param] = value
